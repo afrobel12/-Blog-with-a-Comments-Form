@@ -10,8 +10,9 @@ export default function Page() {
         "use server"
         const title = formData.get('title')
         const content = formData.get('content')
+        const imgurl = formData.get('imgurl')
 
-        await sql`INSERT INTO posts (title, content) VALUES(${title}, ${content})`
+        await sql`INSERT INTO posts (title, content, imgurl) VALUES(${title}, ${content}, ${imgurl})`
 
         revalidatePath('/posts')
 
@@ -28,7 +29,7 @@ export default function Page() {
                     <label className='text-amber-400 text-lg'>Content</label>
                     <textarea name="content" placeholder="content" />
                     <label className="text-amber-400 text-lg">Image</label>
-                    <input name="img_url" placeholder="img_url"></input>
+                    <input name="imgurl" placeholder="imgurl"></input>
                     <SubmitButton />
                 </form>
             </div>
