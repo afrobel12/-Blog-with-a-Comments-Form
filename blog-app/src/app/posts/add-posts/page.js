@@ -26,7 +26,9 @@ export default function Page() {
                     <label className='text-amber-400 text-lg'>Name</label>
                     <input name="title" placeholder="Title"/>
                     <label className='text-amber-400 text-lg'>Content</label>
-                    <input name="content" placeholder="content" />
+                    <textarea name="content" placeholder="content" />
+                    <label className="text-amber-400 text-lg">Image</label>
+                    <input name="img_url" placeholder="img_url"></input>
                     <SubmitButton />
                 </form>
             </div>

@@ -7,7 +7,7 @@ export const ThemeContext = createContext()
 const getFromLocalStorage = () => {
     if (typeof window !== "undefined") {
     const value = localStorage.getItem("theme")
-    return value || "light"
+    return value || "dark"
 }
 }
 
@@ -16,7 +16,7 @@ export const ThemeContextProvider = ({children}) => {
         return getFromLocalStorage()
     })
     const toogle = () => {
-        setTheme(theme ==="light" ? "dark" : "light")
+        setTheme(theme ==="dark" ? "light" : "dark")
     }
 
     useEffect(() => {

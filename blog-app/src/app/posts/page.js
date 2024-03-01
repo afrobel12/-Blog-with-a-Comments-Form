@@ -1,5 +1,6 @@
 import { sql } from "@vercel/postgres";
 import Link from "next/link"
+import styles from "./page.module.css"
 
 export default async function PostsPage() {
 
@@ -8,10 +9,10 @@ export default async function PostsPage() {
     return (
         <div>
             <h1>Posts</h1>
-            <div className="flex flex-row">
+            <div className={styles.postContainer}>
                 {posts.map(post => (
-                    <div className="border-solid border-yellow-300" key={post.id}>
-                        <h2>{post.title}</h2>
+                    <div key={post.id}>
+                        <h2 className={styles.postTitle}>{post.title}</h2>
                         <Link href={`/posts/${post.id}`}>Read More</Link>
                         </div>
                 ))}
