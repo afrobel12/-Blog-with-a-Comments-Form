@@ -1,4 +1,3 @@
-import Link from "next/link"
 import styles from "./featured.module.css"
 import Image from "next/image"
 
@@ -6,7 +5,7 @@ export default function Featured() {
     return (
         <div className={styles.container}>
         <h1 className={styles.title}>
-            <b>hello this is abels blog</b>
+            <b>Hello, this is Abels blog</b>
             Discover my posts here 
         </h1>
         <div className={styles.post}>

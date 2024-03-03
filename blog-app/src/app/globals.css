@@ -30,6 +30,7 @@ a {
   --textColor: #ddd;
   --softBg: #1f273a;
   --softTextColor: #a6a6a6;
+  width: 100vw;
 }
 
 
@@ -38,6 +39,7 @@ a {
   min-height: 100vh;
   background-color: var(--bg);
   color: var(--textColor);
+  width: 100vw;
 }
 
 .wrapper {
