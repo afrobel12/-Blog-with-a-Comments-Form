@@ -12,12 +12,12 @@ export default async function PostsPage() {
 
     return (
         <div>
-            <h1>Posts</h1>
+            <b>Posts</b>
             <div className={styles.postContainer}>
                 {posts.map(post => (
                     <div key={post.postsid}>
                         <h2 className={styles.postTitle}>{post.title}</h2>
-                        <Link href={`/posts/${post.postsid}`}>Read More</Link>
+                        <Link href={`/posts/${post.postsid}`} className={styles.buttony}>Read More</Link>
                         <DeleteButton postsid={post.postsid} />
                         </div>
                 ))}

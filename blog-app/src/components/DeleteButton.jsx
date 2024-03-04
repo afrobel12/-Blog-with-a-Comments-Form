@@ -2,8 +2,8 @@
 
 import { handleDelete } from "@/utils/utils"
 
-export default function DeleteButton({id}) {
+export default function DeleteButton({postsid}) {
     return (
-    <button onClick={() => handleDelete(id)}>Delete</button>
+    <button onClick={() => handleDelete(postsid)}>Delete</button>
     )
 }

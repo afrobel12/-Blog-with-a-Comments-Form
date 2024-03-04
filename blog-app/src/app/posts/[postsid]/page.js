@@ -1,10 +1,25 @@
 import SubmitButton from "@/components/SubmitButton";
 import { sql } from "@vercel/postgres";
 import Image from "next/image";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation"
+
 
 
 export default async function Page({params}) {
     const post = (await sql `SELECT * FROM posts WHERE postsid= ${params.postsid}`).rows[0]
+    
+    async function handleAddComment(formData) {
+        "use server"
+        const comment = formData.get('comment')
+        const postid = params.postsid
+
+        await sql `INSERT INTO comments (comment, postid) VALUES(${comment}, ${postid})`
+
+        revalidatePath ('/posts/[postsid]')
+
+        
+    }  
     
     const comments = (await sql`
         SELECT * FROM comments
@@ -17,14 +32,8 @@ export default async function Page({params}) {
         <h3>{post.comment}</h3> 
         </div> )
         : <div>No Comment</div>
-    async function handleAddComment(formData) {
-        "use server"
-        const comment = formData.get('comment')
-        const postid = params.postsid
 
-        await sql `INSERT INTO comments (comment, postid) VALUES(${comment}, ${postid})`
-    }   
-
+        
     return (
         <div> 
             <h2>{post.title}</h2>
@@ -37,7 +46,7 @@ export default async function Page({params}) {
                 <SubmitButton />
             </form>
           </div> 
-        <div>comments:<h3>{commentDisplay}</h3></div>   
+        <div >comments:<h3>{commentDisplay}</h3></div>   
         </div>
     )
 }

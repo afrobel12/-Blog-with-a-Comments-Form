@@ -17,8 +17,8 @@ export default function Nav() {
            <div className={styles.links}>
              <ThemeToggle />
              <Link href="/" className={styles.link}>Homepage</Link>
-             <Link href="/" className={styles.link}>Contact</Link>
-             <Link href="/" className={styles.link}>About</Link>
+             <Link href="/posts" className={styles.link}>Posts</Link>
+             <Link href="/posts/add-posts" className={styles.link}>Add posts</Link>
             <AuthLinks />
            </div>
         </div>
